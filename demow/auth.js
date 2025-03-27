@@ -26,7 +26,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function validateEmail(email) {
-        const emailRegex = /^[^\s@]+@bmsit\.in$/;
+        // Accept college emails with common educational domains
+        const emailRegex = /^[^\s@]+@([a-zA-Z0-9-]+\.)*(edu|ac\.in|ac\.uk|edu\.[a-z]{2}|college\.edu|university\.edu|bmsit\.in|bmsce\.ac\.in)$/;
         return emailRegex.test(email);
     }
 
@@ -65,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Email Validation
         if (!validateEmail(email)) {
-            showError(2, 'Please use your BMSIT college email');
+            showError(2, 'Please use your college email address');
             isValid = false;
         } else {
             clearError(2);
@@ -87,41 +88,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (!isValid) return;
 
-        try {
-            // Supabase Signup
-            const { data, error } = await supabase.auth.signUp({
-                email: email,
-                password: password,
-                options: {
-                    data: {
-                        full_name: fullName,
-                        phone: phone
-                    }
-                }
-            });
+        // Skip Supabase authentication for demo
+        // Store user data in localStorage
+        localStorage.setItem('tempUserEmail', email);
+        localStorage.setItem('tempUserName', fullName);
+        localStorage.setItem('tempUserPhone', phone);
 
-            if (error) throw error;
+        // Show success message
+        document.querySelector('.auth-form').style.display = 'none';
+        document.querySelector('.success-message').classList.remove('hidden');
 
-            // Store additional user details in profiles table
-            const { error: profileError } = await supabase
-                .from('profiles')
-                .upsert({
-                    id: data.user.id,
-                    full_name: fullName,
-                    email: email,
-                    phone: phone
-                });
-
-            if (profileError) throw profileError;
-
-            // Show success message
-            document.querySelector('.auth-form').style.display = 'none';
-            document.querySelector('.success-message').classList.remove('hidden');
-
-        } catch (error) {
-            console.error('Signup Error:', error);
-            alert(`Signup failed: ${error.message}`);
-        }
+        // Redirect to login page after signup
+        setTimeout(() => {
+            window.location.href = 'login.html';
+        }, 3000);
     }
 
     // Helper Functions for Error Handling
@@ -156,24 +136,16 @@ document.addEventListener('DOMContentLoaded', () => {
         const email = document.getElementById('loginEmail').value;
         const password = document.getElementById('loginPassword').value;
 
-        try {
-            const { data, error } = await supabase.auth.signInWithPassword({
-                email: email,
-                password: password
-            });
+        // Skip authentication - just store sample user data and redirect
+        localStorage.setItem('token', 'sample-token-123');
+        localStorage.setItem('userId', 'user-' + Date.now());
+        localStorage.setItem('userEmail', email);
 
-            if (error) throw error;
-
-            // Successful login
-            showToast('Login Successful! Redirecting...');
-            setTimeout(() => {
-                window.location.href = 'dashboard.html';
-            }, 2000);
-
-        } catch (error) {
-            console.error('Login Error:', error);
-            showToast(`Login failed: ${error.message}`, 'error');
-        }
+        // Successful login
+        showToast('Login Successful! Redirecting...');
+        setTimeout(() => {
+            window.location.href = 'events.html';
+        }, 2000);
     }
 
     // Forgot Password Function
@@ -182,20 +154,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const resetEmail = document.getElementById('resetEmail').value;
 
-        try {
-            const { data, error } = await supabase.auth.resetPasswordForEmail(resetEmail, {
-                redirectTo: 'https://yourdomain.com/reset-password'
-            });
-
-            if (error) throw error;
-
-            showToast('Password reset link sent to your email');
-            closeModal();
-
-        } catch (error) {
-            console.error('Password Reset Error:', error);
-            showToast(`Password reset failed: ${error.message}`, 'error');
-        }
+        // Skip actual password reset for demo
+        showToast('Password reset link sent to your email');
+        closeModal();
     }
 
     // Toast Notification Function

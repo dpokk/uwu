@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discover Events - BMSIT Events Portal</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="events.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Ultra-simple RSVP button styles */
+        .rsvp-btn {
+            background-color: #2705d1;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+        
+        .rsvp-btn:hover {
+            background-color: #1e04a0;
+        }
+        
+        .rsvp-btn.registered {
+            background-color: #28a745;
+        }
+    </style>
+</head>
+<body>
+    <!-- Updated Navbar to match index.html theme -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-brand">
+                <!-- <img src="assets/bmsit_logo.png" alt="BMSIT Logo"> -->
+                <span>BrowseBMSIT</span>
+            </div>
+            <div class="navbar-menu">
+                <ul class="navbar-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="events.html" class="active">Events</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="navbar-auth">
+                <a href="login.html" class="btn btn-outline">Login</a>
+                <a href="signup.html" class="btn btn-primary">Sign Up</a>
+            </div>
+            <div class="navbar-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <!-- <header class="page-header">
+        <h1>Discover Events</h1>
+        <p>Find exciting events or host your own at BMSIT</p>
+    </header> -->
+
+    <!-- Upcoming Events Section -->
+    <section class="events-section">
+        <div class="container">
+            <h2 class="section-title">Upcoming Events</h2>
+            <div class="events-grid">
+                <!-- Event Card 1 -->
+                <div class="event-item">
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img src="assets/images/tech_fest.jpg" alt="Tech Fest">
+                                <h3>Tech Fest 2023</h3>
+                                <p class="event-date">Oct 15, 2023</p>
+                            </div>
+                            <div class="flip-card-back">
+                                <h3>Tech Fest 2023</h3>
+                                <p>Annual technology festival featuring coding competitions, robotics, and AI workshops.</p>
+                                <p><strong>Location:</strong> Main Auditorium</p>
+                                <p><strong>Time:</strong> 9:00 AM - 6:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="rsvp-btn">RSVP Now</button>
+                </div>
+                
+                <!-- Event Card 2 -->
+                <div class="event-item">
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img src="assets/images/hackathon.jpg" alt="Hackathon">
+                                <h3>Hackathon 2023</h3>
+                                <p class="event-date">Nov 5-6, 2023</p>
+                            </div>
+                            <div class="flip-card-back">
+                                <h3>Hackathon 2023</h3>
+                                <p>48-hour coding marathon to solve real-world problems with innovative solutions.</p>
+                                <p><strong>Location:</strong> CS Department</p>
+                                <p><strong>Time:</strong> Starts at 10:00 AM</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="rsvp-btn">RSVP Now</button>
+                </div>
+                
+                <!-- Event Card 3 -->
+                <div class="event-item">
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img src="assets/images/cultural_fest.jpg" alt="Cultural Fest">
+                                <h3>Cultural Fest</h3>
+                                <p class="event-date">Dec 10, 2023</p>
+                            </div>
+                            <div class="flip-card-back">
+                                <h3>Cultural Fest</h3>
+                                <p>Celebrate diversity through music, dance, art and cultural performances.</p>
+                                <p><strong>Location:</strong> Open Air Theatre</p>
+                                <p><strong>Time:</strong> 5:00 PM - 10:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="rsvp-btn">RSVP Now</button>
+                </div>
+                
+                <!-- Event Card 4 -->
+                <div class="event-item">
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img src="assets/images/workshop.jpg" alt="AI Workshop">
+                                <h3>AI Workshop</h3>
+                                <p class="event-date">Oct 25, 2023</p>
+                            </div>
+                            <div class="flip-card-back">
+                                <h3>AI Workshop</h3>
+                                <p>Hands-on workshop on artificial intelligence and machine learning basics.</p>
+                                <p><strong>Location:</strong> Room 301</p>
+                                <p><strong>Time:</strong> 2:00 PM - 5:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="rsvp-btn">RSVP Now</button>
+                </div>
+                
+                <!-- Event Card 5 -->
+                <div class="event-item">
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img src="assets/images/career_fair.jpg" alt="Career Fair">
+                                <h3>Career Fair</h3>
+                                <p class="event-date">Nov 20, 2023</p>
+                            </div>
+                            <div class="flip-card-back">
+                                <h3>Career Fair</h3>
+                                <p>Connect with top companies and explore internship and job opportunities.</p>
+                                <p><strong>Location:</strong> Main Hall</p>
+                                <p><strong>Time:</strong> 10:00 AM - 4:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="rsvp-btn">RSVP Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Host an Event Section -->
+    <section class="host-section">
+        <div class="container">
+            <h2 class="section-title">Host an Event</h2>
+            <div class="host-content">
+                <p>Have an idea for an exciting event at BMSIT? Share it with us!</p>
+                <a href="host.html" class="btn host-btn">Host an Event</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="assets/bmsit_logo.png" alt="BMSIT Logo">
+                    <p>BMSIT Events Portal</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="events.html">Events</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <p>BMSIT, Avalahalli, Bangalore</p>
+                    <p>Email: events@bmsit.in</p>
+                    <p>Phone: +91 123 456 7890</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 BMSIT Events Portal. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Ultra-simple RSVP button script
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM loaded, looking for RSVP buttons');
+            
+            // Get all buttons with rsvp-btn class
+            var buttons = document.querySelectorAll('.rsvp-btn');
+            console.log('Found ' + buttons.length + ' RSVP buttons');
+            
+            // Add click handler to each button
+            buttons.forEach(function(button) {
+                button.addEventListener('click', function() {
+                    console.log('Button clicked');
+                    this.textContent = 'Registered';
+                    this.classList.add('registered');
+                });
+            });
+        });
+    </script>
+</body>
+</html> 

@@ -78,53 +78,85 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Team Registration Modal
+    // Handle Team Registration Button Clicks 
     const teamButtons = document.querySelectorAll('.team-rsvp');
-    const teamModal = document.querySelector('.modal-overlay');
-    const teamModalClose = document.querySelectorAll('.modal-close');
+    const teamRegModal = document.getElementById('team-registration-modal');
     
     teamButtons.forEach(button => {
         button.addEventListener('click', (e) => {
             e.preventDefault();
+            
+            // Check if user is logged in
+            if (!checkUserLoggedIn()) {
+                window.location.href = 'login.html';
+                return;
+            }
             
             // Get event details from the card
             const eventCard = button.closest('.event-card');
             const eventTitle = eventCard.querySelector('.event-title').textContent;
             const eventTime = eventCard.querySelector('.event-time').textContent;
             const eventLocation = eventCard.querySelector('.event-location').textContent;
+            const eventDescription = eventCard.querySelector('.event-description').textContent;
             
             // Update modal with event details
             document.querySelector('.event-title-modal').textContent = eventTitle;
-            document.querySelector('.event-details-modal').textContent = `July 15, ${eventTime} at ${eventLocation}`;
+            document.querySelector('.event-details-modal').textContent = `${eventDescription} (${eventLocation}, ${eventTime})`;
+            
+            // Pre-fill user email if available in localStorage
+            const userEmail = localStorage.getItem('userEmail');
+            if (userEmail) {
+                const leaderInput = document.querySelector('.team-leader input');
+                if (leaderInput) {
+                    leaderInput.value = userEmail;
+                }
+            }
             
             // Show modal with animation
-            teamModal.classList.add('active');
+            teamRegModal.style.display = 'flex';
+            gsap.fromTo(teamRegModal, 
+                { opacity: 0 },
+                { opacity: 1, duration: 0.3, ease: 'power1.out' }
+            );
+            
+            // Animate content
+            const modalContent = teamRegModal.querySelector('.modal-content');
+            gsap.fromTo(modalContent,
+                { y: -20, opacity: 0 },
+                { y: 0, opacity: 1, duration: 0.3, delay: 0.1, ease: 'back.out(1.7)' }
+            );
             
             // Prevent body scrolling
             document.body.style.overflow = 'hidden';
         });
     });
     
-    teamModalClose.forEach(closeBtn => {
-        closeBtn.addEventListener('click', () => {
-            // Close any open modals
-            document.querySelectorAll('.modal-overlay').forEach(modal => {
-                modal.classList.remove('active');
-            });
-            
-            // Re-enable scrolling
-            document.body.style.overflow = 'auto';
-        });
+    // Close modal button handlers
+    const closeModalBtns = document.querySelectorAll('.close-modal');
+    closeModalBtns.forEach(btn => {
+        btn.addEventListener('click', closeTeamModal);
     });
-
-    // Click outside to close modals
-    document.querySelectorAll('.modal-overlay').forEach(overlay => {
-        overlay.addEventListener('click', (e) => {
-            if (e.target === overlay) {
-                overlay.classList.remove('active');
+    
+    // Close team registration modal function
+    function closeTeamModal() {
+        const teamRegModal = document.getElementById('team-registration-modal');
+        
+        // Animate out
+        gsap.to(teamRegModal, {
+            opacity: 0, 
+            duration: 0.3,
+            onComplete: () => {
+                teamRegModal.style.display = 'none';
                 document.body.style.overflow = 'auto';
             }
         });
+    }
+    
+    // Click outside team modal to close
+    teamRegModal.addEventListener('click', (e) => {
+        if (e.target === teamRegModal) {
+            closeTeamModal();
+        }
     });
 
     // Team Member Management
@@ -319,45 +351,166 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // RSVP Button Functionality
-    const rsvpButtons = document.querySelectorAll('.event-rsvp');
+    // Single Person RSVP Functionality
+    const singleRsvpButtons = document.querySelectorAll('.single-rsvp');
     
-    rsvpButtons.forEach(button => {
-        button.addEventListener('click', function(e) {
+    singleRsvpButtons.forEach(button => {
+        button.addEventListener('click', (e) => {
             e.preventDefault();
             
-            // Change button state
-            this.innerHTML = '<span>Registered ✓</span>';
-            this.style.backgroundColor = 'var(--color-success)';
-            this.disabled = true;
+            // Check if user is logged in
+            const isLoggedIn = checkUserLoggedIn();
             
-            // Show success toast
-            showToast('Your RSVP was successful!');
+            if (!isLoggedIn) {
+                // Redirect to login page if not logged in
+                window.location.href = 'login.html';
+                return;
+            }
+            
+            // Get event details from the card
+            const eventCard = button.closest('.event-card');
+            const eventTitle = eventCard.querySelector('.event-title').textContent;
+            const eventId = eventCard.dataset.eventId;
+            
+            // Show loading state
+            const originalText = button.textContent;
+            button.textContent = 'Processing...';
+            button.disabled = true;
+            
+            // Simulate API call to register for event
+            setTimeout(() => {
+                // Register for event in database
+                registerForEvent(eventId, eventTitle)
+                    .then(() => {
+                        // Update button state
+                        button.textContent = 'Registered';
+                        button.classList.add('registered');
+                        button.disabled = true;
+                        
+                        // Show success message
+                        showToast(`Successfully registered for ${eventTitle}`);
+                    })
+                    .catch(error => {
+                        // Show error message
+                        showToast(error.message || 'Failed to register. Please try again.');
+                        
+                        // Reset button
+                        button.textContent = originalText;
+                        button.disabled = false;
+                    });
+            }, 1000);
         });
     });
 
+    // Team Registration Form Submission
+    const teamRegForm = document.getElementById('teamRegistrationForm');
+    
+    if (teamRegForm) {
+        teamRegForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Check if user is logged in
+            const isLoggedIn = checkUserLoggedIn();
+            
+            if (!isLoggedIn) {
+                // Redirect to login page if not logged in
+                window.location.href = 'login.html';
+                return;
+            }
+            
+            // Get event title from modal
+            const eventTitle = document.querySelector('.event-title-modal').textContent;
+            
+            // Collect all team member emails
+            const teamEmails = [];
+            const emailInputs = document.querySelectorAll('.team-member input[type="email"]');
+            
+            emailInputs.forEach(input => {
+                if (input.value.trim()) {
+                    teamEmails.push(input.value.trim());
+                }
+            });
+            
+            // Validate emails
+            const invalidEmails = teamEmails.filter(email => !isValidEmail(email));
+            
+            if (invalidEmails.length > 0) {
+                showToast('Please enter valid email addresses for all team members');
+                return;
+            }
+            
+            // Show loading state
+            const submitBtn = teamRegForm.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Processing...';
+            submitBtn.disabled = true;
+            
+            // Simulate API call to register team
+            setTimeout(() => {
+                // Register team for event in database
+                registerTeamForEvent(eventTitle, teamEmails)
+                    .then(() => {
+                        // Close modal
+                        document.querySelector('.modal-overlay').classList.remove('active');
+                        document.body.style.overflow = 'auto';
+                        
+                        // Show success message
+                        showToast(`Team successfully registered for ${eventTitle}`);
+                        
+                        // Reset form
+                        teamRegForm.reset();
+                        
+                        // Update corresponding button
+                        const eventCards = document.querySelectorAll('.event-card');
+                        eventCards.forEach(card => {
+                            if (card.querySelector('.event-title').textContent === eventTitle) {
+                                const rsvpBtn = card.querySelector('.team-rsvp');
+                                if (rsvpBtn) {
+                                    rsvpBtn.textContent = 'Registered';
+                                    rsvpBtn.classList.add('registered');
+                                    rsvpBtn.disabled = true;
+                                }
+                            }
+                        });
+                    })
+                    .catch(error => {
+                        // Show error message
+                        showToast(error.message || 'Failed to register team. Please try again.');
+                    })
+                    .finally(() => {
+                        // Reset button
+                        submitBtn.textContent = originalText;
+                        submitBtn.disabled = false;
+                    });
+            }, 1500);
+        });
+    }
+
     // Toast Notification Function
     function showToast(message) {
-        const toast = document.querySelector('.toast');
+        const toastContainer = document.querySelector('.toast-container');
+        const toast = document.querySelector('.success-toast');
         const toastMessage = document.querySelector('.toast-message');
         
-        // Update message
-        toastMessage.textContent = message;
-        
-        // Show toast
-        toast.classList.add('active');
-        
-        // Hide toast after 3 seconds
-        setTimeout(() => {
-            toast.classList.remove('active');
-        }, 3000);
+        if (toast && toastMessage) {
+            // Update message
+            toastMessage.textContent = message;
+            
+            // Show toast
+            toast.classList.add('visible');
+            
+            // Hide toast after 3 seconds
+            setTimeout(() => {
+                toast.classList.remove('visible');
+            }, 3000);
+        }
     }
     
-    // Close toast on click
+    // Close toast button
     const toastCloseBtn = document.querySelector('.toast-close');
     if (toastCloseBtn) {
         toastCloseBtn.addEventListener('click', () => {
-            document.querySelector('.toast').classList.remove('active');
+            document.querySelector('.success-toast').classList.remove('visible');
         });
     }
 
@@ -436,5 +589,86 @@ document.addEventListener('DOMContentLoaded', () => {
         };
         
         animate();
+    }
+
+    /**
+     * Check if user is logged in
+     * @returns {boolean} - True if user is logged in
+     */
+    function checkUserLoggedIn() {
+        // In a real implementation, this would check with the auth system
+        // For now, we'll just check if there's a token in localStorage
+        const token = localStorage.getItem('token');
+        const userId = localStorage.getItem('userId');
+        return token !== null && userId !== null;
+    }
+
+    /**
+     * Register for an event (single person)
+     * @param {string} eventId - Event ID
+     * @param {string} eventTitle - Event title for display purposes
+     * @returns {Promise} - Promise that resolves when registration is complete
+     */
+    async function registerForEvent(eventId, eventTitle) {
+        // In a real implementation, this would call the API
+        // For now, we'll just simulate a successful registration
+        return new Promise((resolve, reject) => {
+            try {
+                // Simulate API call to Supabase
+                const userId = localStorage.getItem('userId');
+                console.log(`Registering user ${userId} for event: ${eventId} - ${eventTitle}`);
+                
+                // Store in localStorage for demo purposes
+                let registeredEvents = JSON.parse(localStorage.getItem('registeredEvents') || '[]');
+                registeredEvents.push({ eventId, eventTitle, registeredAt: new Date().toISOString() });
+                localStorage.setItem('registeredEvents', JSON.stringify(registeredEvents));
+                
+                resolve();
+            } catch (error) {
+                reject(error);
+            }
+        });
+    }
+
+    /**
+     * Register a team for an event
+     * @param {string} eventTitle - Event title
+     * @param {Array} teamEmails - Array of team member emails
+     * @returns {Promise} - Promise that resolves when registration is complete
+     */
+    async function registerTeamForEvent(eventTitle, teamEmails) {
+        // In a real implementation, this would call the API
+        // For now, we'll just simulate a successful registration
+        return new Promise((resolve, reject) => {
+            try {
+                // Simulate API call to Supabase
+                const userId = localStorage.getItem('userId');
+                console.log(`Registering team for ${eventTitle}`);
+                console.log('Team members:', teamEmails);
+                
+                // Store in localStorage for demo purposes
+                let registeredTeams = JSON.parse(localStorage.getItem('registeredTeams') || '[]');
+                registeredTeams.push({ 
+                    eventTitle, 
+                    teamMembers: teamEmails, 
+                    registeredAt: new Date().toISOString() 
+                });
+                localStorage.setItem('registeredTeams', JSON.stringify(registeredTeams));
+                
+                resolve();
+            } catch (error) {
+                reject(error);
+            }
+        });
+    }
+
+    /**
+     * Validate email format
+     * @param {string} email - Email to validate
+     * @returns {boolean} - True if email is valid
+     */
+    function isValidEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
     }
 }); 

@@ -544,6 +544,50 @@ input[type="radio"]:checked + .radio-label .radio-custom::after {
     box-shadow: 0 5px 15px rgba(39, 5, 209, 0.3);
 }
 
+/* Button States for RSVP and Team Registration */
+.event-rsvp.registered, .team-rsvp.registered {
+    background-color: #4caf50;
+    border-color: #43a047;
+    cursor: default;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.event-rsvp.registered svg, .team-rsvp.registered svg {
+    width: 18px;
+    height: 18px;
+    fill: white;
+}
+
+.event-rsvp.processing, .team-rsvp.processing {
+    background-color: #78909c;
+    border-color: #607d8b;
+    cursor: wait;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+/* Loading spinner for buttons */
+.loading-spinner {
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spin 0.8s linear infinite;
+    margin-right: 6px;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 /* Modal Styles */
 .modal-overlay {
     position: fixed;
@@ -861,42 +905,63 @@ input[type="radio"]:checked + .radio-label .radio-custom::after {
 .toast-container {
     position: fixed;
     bottom: 20px;
-    right: 20px;
-    z-index: 1000;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 90%;
+    width: 350px;
 }
 
 .toast {
     display: flex;
     align-items: center;
-    min-width: 250px;
-    padding: 1rem;
-    border-radius: 8px;
+    gap: 12px;
     background-color: white;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
-    margin-bottom: 10px;
-    transform: translateX(150%);
-    transition: transform 0.5s var(--cubic-bezier);
+    border-radius: 8px;
+    padding: 12px 16px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s, transform 0.3s;
 }
 
-.toast.active {
-    transform: translateX(0);
+.toast.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.toast.toast-hiding {
+    opacity: 0;
+    transform: translateY(-20px);
 }
 
 .toast-icon {
+    min-width: 24px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 24px;
-    height: 24px;
-    margin-right: 12px;
-    border-radius: 50%;
-    background-color: var(--color-success);
+}
+
+.success-toast .toast-icon {
+    background-color: #d4edda;
+    color: #28a745;
+}
+
+.error-toast .toast-icon {
+    background-color: #f8d7da;
+    color: #dc3545;
 }
 
 .toast-icon svg {
     width: 16px;
     height: 16px;
-    fill: white;
+    fill: currentColor;
 }
 
 .toast-content {
@@ -906,24 +971,26 @@ input[type="radio"]:checked + .radio-label .radio-custom::after {
 .toast-message {
     margin: 0;
     font-size: 0.9rem;
-    color: var(--text-color);
+    color: #333;
 }
 
 .toast-close {
     background: none;
     border: none;
+    padding: 4px;
     cursor: pointer;
-    margin-left: 10px;
+    opacity: 0.6;
+    transition: opacity 0.2s;
+}
+
+.toast-close:hover {
+    opacity: 1;
 }
 
 .toast-close svg {
     width: 16px;
     height: 16px;
-    fill: var(--paragraph-color);
-}
-
-.success-toast .toast-icon {
-    background-color: var(--color-success);
+    fill: #666;
 }
 
 /* Responsive Styles */
@@ -1028,4 +1095,49 @@ input[type="radio"]:checked + .radio-label .radio-custom::after {
     100% {
         background-position: 0% 50%;
     }
+}
+
+/* Hide bullet points in navigation */
+.nav-links {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Navbar container styling */
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0 1.5rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Logo styling */
+.logo {
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+}
+
+.logo-text {
+    color: var(--dark-color);
+}
+
+.logo-highlight {
+    color: var(--primary-color);
+    margin-left: 0.25rem;
 } 

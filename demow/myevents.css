@@ -690,4 +690,336 @@
 
 .myevents-content {
     animation: 0.5s ease-out 0s 1 slideInFromBottom;
+}
+
+/* My Events and Shared Table Styles */
+
+/* Table Container */
+.events-table-container,
+.users-table-container {
+    overflow-x: auto;
+    margin-bottom: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Table Styles */
+.events-table,
+.users-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    background-color: white;
+}
+
+.events-table th,
+.events-table td,
+.users-table th,
+.users-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #e0e0f5;
+}
+
+.events-table th,
+.users-table th {
+    font-weight: 600;
+    color: #333;
+    background-color: #f8f9fd;
+}
+
+.events-table tr:last-child td,
+.users-table tr:last-child td {
+    border-bottom: none;
+}
+
+.events-table tr:hover td,
+.users-table tr:hover td {
+    background-color: #f8f9fd;
+}
+
+/* Status Indicators */
+.status-active {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    background-color: rgba(40, 167, 69, 0.15);
+    color: #28a745;
+    font-weight: 500;
+    font-size: 0.85rem;
+}
+
+.status-inactive {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    background-color: rgba(108, 117, 125, 0.15);
+    color: #6c757d;
+    font-weight: 500;
+    font-size: 0.85rem;
+}
+
+.status-pending {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    background-color: rgba(255, 193, 7, 0.15);
+    color: #ffc107;
+    font-weight: 500;
+    font-size: 0.85rem;
+}
+
+.status-upcoming {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    background-color: rgba(39, 5, 209, 0.15);
+    color: #2705d1;
+    font-weight: 500;
+    font-size: 0.85rem;
+}
+
+.status-completed {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    background-color: rgba(108, 117, 125, 0.15);
+    color: #6c757d;
+    font-weight: 500;
+    font-size: 0.85rem;
+}
+
+/* Table Actions */
+.table-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.action-btn {
+    background: none;
+    border: none;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.action-btn svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+}
+
+.edit-btn {
+    color: #17a2b8;
+}
+
+.edit-btn:hover {
+    background-color: rgba(23, 162, 184, 0.1);
+}
+
+.delete-btn {
+    color: #dc3545;
+}
+
+.delete-btn:hover {
+    background-color: rgba(220, 53, 69, 0.1);
+}
+
+.view-btn {
+    color: #2705d1;
+}
+
+.view-btn:hover {
+    background-color: rgba(39, 5, 209, 0.1);
+}
+
+.activate-btn {
+    color: #28a745;
+}
+
+.activate-btn:hover {
+    background-color: rgba(40, 167, 69, 0.1);
+}
+
+/* Pagination */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1.5rem;
+}
+
+.pagination-btn {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    border: 1px solid #e0e0f5;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.pagination-btn svg {
+    width: 18px;
+    height: 18px;
+    fill: #333;
+}
+
+.pagination-btn:hover {
+    background-color: #f8f9fd;
+}
+
+.pagination-btn:hover svg {
+    fill: #2705d1;
+}
+
+.pagination-numbers {
+    display: flex;
+    gap: 0.5rem;
+    margin: 0 0.75rem;
+}
+
+.pagination-number {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    border: 1px solid #e0e0f5;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.pagination-number:hover {
+    background-color: #f8f9fd;
+}
+
+.pagination-number.active {
+    background-color: #2705d1;
+    border-color: #2705d1;
+    color: white;
+}
+
+/* Modal Styles */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal-content {
+    background-color: white;
+    border-radius: 10px;
+    max-width: 90%;
+    width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content.large-modal {
+    width: 800px;
+}
+
+.modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    color: #6c757d;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.modal-close:hover {
+    color: #333;
+}
+
+.modal-close svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+}
+
+.modal h2 {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #333;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .events-table-container,
+    .users-table-container {
+        margin: 0 -1rem;
+        width: calc(100% + 2rem);
+        border-radius: 0;
+    }
+    
+    .events-table th,
+    .events-table td,
+    .users-table th,
+    .users-table td {
+        padding: 0.75rem 0.5rem;
+    }
+    
+    .table-actions {
+        flex-wrap: wrap;
+    }
+    
+    .pagination-numbers {
+        gap: 0.25rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .pagination-number {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .pagination-btn {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .action-btn {
+        width: 28px;
+        height: 28px;
+    }
+    
+    .action-btn svg {
+        width: 16px;
+        height: 16px;
+    }
 } 

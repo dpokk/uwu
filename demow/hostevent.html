@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Host an Event - BMSIT Events Portal</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="events.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Nav Bar (Copy from index.html) -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="assets/bmsit_logo.png" alt="BMSIT Logo">
+            <span>BMSIT Events</span>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="events.html">Events</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </div>
+        <div class="auth-buttons">
+            <a href="login.html" class="btn btn-login">Login</a>
+            <a href="signup.html" class="btn btn-signup">Sign Up</a>
+        </div>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <h1>Host an Event</h1>
+        <p>Share your event idea with the BMSIT community</p>
+    </header>
+
+    <!-- Event Form Section -->
+    <section class="host-form-section">
+        <div class="container">
+            <div class="form-container">
+                <form id="host-event-form">
+                    <div class="form-group">
+                        <label for="eventName">Event Name</label>
+                        <input type="text" id="eventName" name="eventName" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="eventDate">Event Date</label>
+                        <input type="date" id="eventDate" name="eventDate" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="eventTime">Event Time</label>
+                        <input type="time" id="eventTime" name="eventTime" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="eventLocation">Location</label>
+                        <input type="text" id="eventLocation" name="eventLocation" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="eventDescription">Event Description</label>
+                        <textarea id="eventDescription" name="eventDescription" rows="5" required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="eventImage">Event Image</label>
+                        <input type="file" id="eventImage" name="eventImage">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="organizerName">Organizer Name</label>
+                        <input type="text" id="organizerName" name="organizerName" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="organizerEmail">Organizer Email</label>
+                        <input type="email" id="organizerEmail" name="organizerEmail" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="organizerPhone">Organizer Phone</label>
+                        <input type="tel" id="organizerPhone" name="organizerPhone" required>
+                    </div>
+                    
+                    <button type="submit" class="btn host-btn">Submit Event</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="assets/bmsit_logo.png" alt="BMSIT Logo">
+                    <p>BMSIT Events Portal</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="events.html">Events</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <p>BMSIT, Avalahalli, Bangalore</p>
+                    <p>Email: events@bmsit.in</p>
+                    <p>Phone: +91 123 456 7890</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 BMSIT Events Portal. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 

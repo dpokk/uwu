@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Details - Campus Event Finder</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="discover.css">
+    <link rel="stylesheet" href="myevents.css">
+    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="assets/css/toast.css">
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="preloader-content">
+            <div class="loader"></div>
+            <h2 class="loader-text">Event Details</h2>
+        </div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar sticky-nav">
+        <div class="navbar-container">
+            <a href="index.html" class="logo">
+                <span class="logo-text">Campus</span>
+                <span class="logo-highlight">Event Finder</span>
+            </a>
+            <div class="menu-toggle">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li class="user-dropdown">
+                    <a href="#" class="nav-link profile-link">
+                        <span>Admin Panel</span>
+                        <svg class="dropdown-icon" viewBox="0 0 24 24">
+                            <path d="M7 10l5 5 5-5z"></path>
+                        </svg>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="admin-dashboard.html" class="dropdown-item">Dashboard</a>
+                        <a href="#" class="dropdown-item">Settings</a>
+                        <a href="index.html" class="dropdown-item">Logout</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Event Details Content -->
+    <div class="admin-container">
+        <!-- Back Button -->
+        <div class="back-navigation">
+            <a href="javascript:history.back()" class="back-btn">
+                <svg viewBox="0 0 24 24" width="24" height="24">
+                    <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"></path>
+                </svg>
+                Back to Dashboard
+            </a>
+        </div>
+        
+        <!-- Event Details -->
+        <div class="event-details-page">
+            <div class="event-details-header">
+                <h1 id="event-title">Tech Innovation Summit</h1>
+                <div class="event-status">
+                    <span class="status-upcoming" id="event-status">Upcoming</span>
+                </div>
+            </div>
+            
+            <div class="event-details-content-page">
+                <div class="event-image-large">
+                    <img src="assets/images/events/event1.jpg" alt="Event" id="event-image">
+                </div>
+                
+                <div class="event-info-container">
+                    <div class="event-description-section">
+                        <h2>Event Description</h2>
+                        <p id="event-description">A gathering of technology enthusiasts and innovators to showcase and discuss the latest trends in technology.</p>
+                    </div>
+                    
+                    <div class="event-details-grid">
+                        <div class="event-details-card">
+                            <h3>Event Information</h3>
+                            <div class="details-list">
+                                <div class="detail-item">
+                                    <div class="detail-icon">
+                                        <svg viewBox="0 0 24 24" width="24" height="24">
+                                            <path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2zm-7 5h5v5h-5v-5z"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="detail-info">
+                                        <span class="detail-label">Date & Time</span>
+                                        <span class="detail-value" id="event-datetime">June 15, 2023, 10:00 AM - 4:00 PM</span>
+                                    </div>
+                                </div>
+                                <div class="detail-item">
+                                    <div class="detail-icon">
+                                        <svg viewBox="0 0 24 24" width="24" height="24">
+                                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="detail-info">
+                                        <span class="detail-label">Venue</span>
+                                        <span class="detail-value" id="event-venue">Main Auditorium</span>
+                                    </div>
+                                </div>
+                                <div class="detail-item">
+                                    <div class="detail-icon">
+                                        <svg viewBox="0 0 24 24" width="24" height="24">
+                                            <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5z"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="detail-info">
+                                        <span class="detail-label">Maximum Attendees</span>
+                                        <span class="detail-value" id="event-max-attendees">200</span>
+                                    </div>
+                                </div>
+                                <div class="detail-item">
+                                    <div class="detail-icon">
+                                        <svg viewBox="0 0 24 24" width="24" height="24">
+                                            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="detail-info">
+                                        <span class="detail-label">Registration Type</span>
+                                        <span class="detail-value" id="event-registration-type">Team (2-4 members)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="event-details-card">
+                            <h3>Organizer Information</h3>
+                            <div class="details-list">
+                                <div class="detail-item">
+                                    <div class="detail-icon">
+                                        <svg viewBox="0 0 24 24" width="24" height="24">
+                                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="detail-info">
+                                        <span class="detail-label">Host</span>
+                                        <span class="detail-value" id="event-host">Computer Science Department</span>
+                                    </div>
+                                </div>
+                                <div class="detail-item">
+                                    <div class="detail-icon">
+                                        <svg viewBox="0 0 24 24" width="24" height="24">
+                                            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="detail-info">
+                                        <span class="detail-label">Contact</span>
+                                        <span class="detail-value" id="event-contact">csdept@college.edu</span>
+                                    </div>
+                                </div>
+                                <div class="detail-item">
+                                    <div class="detail-icon">
+                                        <svg viewBox="0 0 24 24" width="24" height="24">
+                                            <path d="M12 5.9c1.16 0 2.1.94 2.1 2.1s-.94 2.1-2.1 2.1S9.9 9.16 9.9 8s.94-2.1 2.1-2.1m0 9c2.97 0 6.1 1.46 6.1 2.1v1.1H5.9V17c0-.64 3.13-2.1 6.1-2.1M12 4C9.79 4 8 5.79 8 8s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm0 9c-2.67 0-8 1.34-8 4v3h16v-3c0-2.66-5.33-4-8-4z"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="detail-info">
+                                        <span class="detail-label">Faculty</span>
+                                        <span class="detail-value" id="event-faculty">Dr. Thomas Anderson</span>
+                                    </div>
+                                </div>
+                                <div class="detail-item">
+                                    <div class="detail-icon">
+                                        <svg viewBox="0 0 24 24" width="24" height="24">
+                                            <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="detail-info">
+                                        <span class="detail-label">Faculty Contact</span>
+                                        <span class="detail-value" id="event-faculty-contact">555-123-4567</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Admin Actions -->
+            <div class="admin-actions">
+                <button class="btn btn-primary" id="approve-event-btn">Approve Event</button>
+                <button class="btn btn-secondary" id="reject-event-btn">Reject Event</button>
+                <button class="btn btn-tertiary" id="request-changes-btn">Request Changes</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div class="toast-container">
+        <div class="toast" id="notificationToast">
+            <div class="toast-icon">
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"></path>
+                </svg>
+            </div>
+            <div class="toast-content"></div>
+            <button class="toast-close">
+                <svg viewBox="0 0 24 24">
+                    <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"></path>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+    <script src="assets/js/utility.js"></script>
+    <script src="assets/js/toast.js"></script>
+    
+    <script>
+    // Add preloader removal code
+    window.addEventListener('load', () => {
+        const preloader = document.querySelector('.preloader');
+        setTimeout(() => {
+            preloader.style.opacity = '0';
+            setTimeout(() => {
+                preloader.style.display = 'none';
+            }, 500);
+        }, 1000);
+        
+        // Load event details based on URL parameter
+        loadEventDetails();
+    });
+    
+    function loadEventDetails() {
+        // Get event ID from URL parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const eventId = urlParams.get('id');
+        
+        if (eventId) {
+            // In a real application, you would fetch the event data from a database
+            // For this static demo, we'll use hard-coded data
+            let eventData;
+            
+            switch(eventId) {
+                case '1':
+                    eventData = {
+                        title: 'Tech Innovation Summit',
+                        description: 'A gathering of technology enthusiasts and innovators to showcase and discuss the latest trends in technology.',
+                        image: 'assets/images/events/event1.jpg',
+                        status: 'Upcoming',
+                        datetime: 'June 15, 2023, 10:00 AM - 4:00 PM',
+                        venue: 'Main Auditorium',
+                        maxAttendees: '200',
+                        registrationType: 'Team (2-4 members)',
+                        host: 'Computer Science Department',
+                        contact: 'csdept@college.edu',
+                        faculty: 'Dr. Thomas Anderson',
+                        facultyContact: '555-123-4567'
+                    };
+                    break;
+                case '2':
+                    eventData = {
+                        title: 'Cultural Night 2023',
+                        description: 'An evening of music, dance, and cultural performances showcasing the diversity of our campus community.',
+                        image: 'assets/images/events/event2.jpg',
+                        status: 'Upcoming',
+                        datetime: 'July 8, 2023, 6:00 PM - 10:00 PM',
+                        venue: 'Open Air Theater',
+                        maxAttendees: '300',
+                        registrationType: 'Individual',
+                        host: 'Cultural Association',
+                        contact: 'cultural@college.edu',
+                        faculty: 'Prof. Sarah Johnson',
+                        facultyContact: '555-987-6543'
+                    };
+                    break;
+                case '3':
+                    eventData = {
+                        title: 'Hackathon 2023',
+                        description: 'A 24-hour coding competition where students collaborate to build innovative solutions to real-world problems.',
+                        image: 'assets/images/events/event1.jpg',
+                        status: 'Active',
+                        datetime: 'May 20-21, 2023, 9:00 AM - 9:00 AM',
+                        venue: 'Tech Lab',
+                        maxAttendees: '50',
+                        registrationType: 'Team (3-5 members)',
+                        host: 'Coding Club',
+                        contact: 'codingclub@college.edu',
+                        faculty: 'Dr. James Wilson',
+                        facultyContact: '555-456-7890'
+                    };
+                    break;
+                default:
+                    // Default event data if ID is not found
+                    eventData = {
+                        title: 'Event Not Found',
+                        description: 'The event you are looking for does not exist.',
+                        image: 'assets/images/events/default.jpg',
+                        status: 'N/A',
+                        datetime: 'N/A',
+                        venue: 'N/A',
+                        maxAttendees: 'N/A',
+                        registrationType: 'N/A',
+                        host: 'N/A',
+                        contact: 'N/A',
+                        faculty: 'N/A',
+                        facultyContact: 'N/A'
+                    };
+            }
+            
+            // Update page with event data
+            document.title = `${eventData.title} - Campus Event Finder`;
+            document.getElementById('event-title').textContent = eventData.title;
+            document.getElementById('event-status').textContent = eventData.status;
+            document.getElementById('event-status').className = `status-${eventData.status.toLowerCase()}`;
+            document.getElementById('event-image').src = eventData.image;
+            document.getElementById('event-description').textContent = eventData.description;
+            document.getElementById('event-datetime').textContent = eventData.datetime;
+            document.getElementById('event-venue').textContent = eventData.venue;
+            document.getElementById('event-max-attendees').textContent = eventData.maxAttendees;
+            document.getElementById('event-registration-type').textContent = eventData.registrationType;
+            document.getElementById('event-host').textContent = eventData.host;
+            document.getElementById('event-contact').textContent = eventData.contact;
+            document.getElementById('event-faculty').textContent = eventData.faculty;
+            document.getElementById('event-faculty-contact').textContent = eventData.facultyContact;
+        }
+    }
+    
+    // Event handlers for buttons
+    document.getElementById('approve-event-btn').addEventListener('click', function() {
+        showToast('Event approved successfully!', 'success');
+    });
+    
+    document.getElementById('reject-event-btn').addEventListener('click', function() {
+        showToast('Event rejected', 'error');
+    });
+    
+    document.getElementById('request-changes-btn').addEventListener('click', function() {
+        showToast('Change request sent to organizer', 'info');
+    });
+    
+    function showToast(message, type = 'info') {
+        const toast = document.getElementById('notificationToast');
+        const content = toast.querySelector('.toast-content');
+        
+        // Set toast content
+        content.textContent = message;
+        
+        // Add appropriate class based on type
+        toast.className = 'toast';
+        toast.classList.add(`${type}-toast`);
+        
+        // Show toast
+        toast.classList.add('visible');
+        
+        // Hide toast after 3 seconds
+        setTimeout(() => {
+            toast.classList.add('toast-hiding');
+            setTimeout(() => {
+                toast.classList.remove('visible');
+                toast.classList.remove('toast-hiding');
+            }, 300);
+        }, 3000);
+    }
+    </script>
+</body>
+</html> 

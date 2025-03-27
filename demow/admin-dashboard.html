@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Campus Event Finder</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="discover.css">
+    <link rel="stylesheet" href="myevents.css">
+    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="assets/css/toast.css">
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="preloader-content">
+            <div class="loader"></div>
+            <h2 class="loader-text">Admin Dashboard</h2>
+        </div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar sticky-nav">
+        <div class="navbar-container">
+            <a href="index.html" class="logo">
+                <span class="logo-text">Campus</span>
+                <span class="logo-highlight">Event Finder</span>
+            </a>
+            <div class="menu-toggle">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li class="user-dropdown">
+                    <a href="#" class="nav-link profile-link">
+                        <span>Admin Panel</span>
+                        <svg class="dropdown-icon" viewBox="0 0 24 24">
+                            <path d="M7 10l5 5 5-5z"></path>
+                        </svg>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="#" class="dropdown-item active">Dashboard</a>
+                        <a href="#" class="dropdown-item">Settings</a>
+                        <a href="index.html" class="dropdown-item">Logout</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Admin Dashboard Content -->
+    <div class="admin-container">
+        <!-- Dashboard Header -->
+        <header class="admin-header">
+            <h1>Admin Dashboard</h1>
+            <div class="admin-stats">
+                <div class="stat-card">
+                    <div class="stat-value">32</div>
+                    <div class="stat-label">Active Events</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">156</div>
+                    <div class="stat-label">Registered Users</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">8</div>
+                    <div class="stat-label">Pending Approvals</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">489</div>
+                    <div class="stat-label">Total Registrations</div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Admin Dashboard Tabs -->
+        <div class="admin-tabs">
+            <div class="tab-container">
+                <button class="tab-btn active" data-tab="pending">Pending Approvals</button>
+                <button class="tab-btn" data-tab="events">All Events</button>
+                <button class="tab-btn" data-tab="users">User Management</button>
+                <button class="tab-btn" data-tab="analytics">Analytics</button>
+                <div class="tab-indicator"></div>
+            </div>
+        </div>
+
+        <!-- Tab Content -->
+        <div class="tab-content-container">
+            <!-- Pending Approvals Tab -->
+            <div class="tab-content active" id="pending-tab">
+                <div class="admin-section-header">
+                    <h2>Events Pending Approval</h2>
+                    <div class="action-buttons">
+                        <button class="btn btn-secondary" id="approveAllBtn">Approve All</button>
+                    </div>
+                </div>
+                
+                <div class="approval-list">
+                    <!-- Approval Card 1 -->
+                    <div class="approval-card">
+                        <div class="approval-info">
+                            <div class="approval-image">
+                                <img src="assets/images/events/event1.jpg" alt="Event">
+                            </div>
+                            <div class="approval-details">
+                                <h3>Tech Innovation Summit</h3>
+                                <div class="detail-row">
+                                    <span class="detail-label">Date:</span>
+                                    <span class="detail-value">June 15, 2023</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">Host:</span>
+                                    <span class="detail-value">Computer Science Department</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">Faculty:</span>
+                                    <span class="detail-value">Dr. Thomas Anderson (555-123-4567)</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">Venue:</span>
+                                    <span class="detail-value">Main Auditorium</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="approval-actions">
+                            <button class="btn btn-primary approve-btn">Approve</button>
+                            <button class="btn btn-secondary reject-btn">Reject</button>
+                            <a href="event-details.html?id=1" class="btn btn-tertiary">View Details</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Approval Card 2 -->
+                    <div class="approval-card">
+                        <div class="approval-info">
+                            <div class="approval-image">
+                                <img src="assets/images/events/event2.jpg" alt="Event">
+                            </div>
+                            <div class="approval-details">
+                                <h3>Cultural Night 2023</h3>
+                                <div class="detail-row">
+                                    <span class="detail-label">Date:</span>
+                                    <span class="detail-value">July 8, 2023</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">Host:</span>
+                                    <span class="detail-value">Cultural Association</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">Faculty:</span>
+                                    <span class="detail-value">Prof. Sarah Johnson (555-987-6543)</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">Venue:</span>
+                                    <span class="detail-value">Open Air Theater</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="approval-actions">
+                            <button class="btn btn-primary approve-btn">Approve</button>
+                            <button class="btn btn-secondary reject-btn">Reject</button>
+                            <a href="event-details.html?id=2" class="btn btn-tertiary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- All Events Tab -->
+            <div class="tab-content" id="events-tab">
+                <div class="admin-section-header">
+                    <h2>All Events</h2>
+                    <div class="search-container">
+                        <input type="text" class="search-input" placeholder="Search events...">
+                        <button class="search-btn">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="events-table-container">
+                    <table class="events-table">
+                        <thead>
+                            <tr>
+                                <th>Event Name</th>
+                                <th>Date</th>
+                                <th>Host</th>
+                                <th>Venue</th>
+                                <th>Participants</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Hackathon 2023</td>
+                                <td>May 20, 2023</td>
+                                <td>Coding Club</td>
+                                <td>Tech Lab</td>
+                                <td>45/50</td>
+                                <td><span class="status-active">Active</span></td>
+                                <td>
+                                    <div class="table-actions">
+                                        <button class="action-btn edit-btn" title="Edit">
+                                            <svg viewBox="0 0 24 24">
+                                                <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"></path>
+                                            </svg>
+                                        </button>
+                                        <a href="event-details.html?id=3" class="action-btn view-btn" title="View Details">
+                                            <svg viewBox="0 0 24 24">
+                                                <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"></path>
+                                            </svg>
+                                        </a>
+                                        <button class="action-btn delete-btn" title="Delete">
+                                            <svg viewBox="0 0 24 24">
+                                                <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"></path>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Alumni Meet</td>
+                                <td>June 5, 2023</td>
+                                <td>Alumni Association</td>
+                                <td>Main Hall</td>
+                                <td>120/150</td>
+                                <td><span class="status-upcoming">Upcoming</span></td>
+                                <td>
+                                    <div class="table-actions">
+                                        <button class="action-btn edit-btn" title="Edit">
+                                            <svg viewBox="0 0 24 24">
+                                                <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"></path>
+                                            </svg>
+                                        </button>
+                                        <button class="action-btn delete-btn" title="Delete">
+                                            <svg viewBox="0 0 24 24">
+                                                <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"></path>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Sports Festival</td>
+                                <td>April 10, 2023</td>
+                                <td>Sports Committee</td>
+                                <td>Sports Complex</td>
+                                <td>200/200</td>
+                                <td><span class="status-completed">Completed</span></td>
+                                <td>
+                                    <div class="table-actions">
+                                        <button class="action-btn view-btn" title="View">
+                                            <svg viewBox="0 0 24 24">
+                                                <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"></path>
+                                            </svg>
+                                        </button>
+                                        <button class="action-btn delete-btn" title="Delete">
+                                            <svg viewBox="0 0 24 24">
+                                                <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"></path>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="pagination">
+                    <button class="pagination-btn prev-btn">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path>
+                        </svg>
+                    </button>
+                    <div class="pagination-numbers">
+                        <button class="pagination-number active">1</button>
+                        <button class="pagination-number">2</button>
+                        <button class="pagination-number">3</button>
+                    </div>
+                    <button class="pagination-btn next-btn">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- User Management Tab -->
+            <div class="tab-content" id="users-tab">
+                <div class="admin-section-header">
+                    <h2>User Management</h2>
+                    <div class="search-container">
+                        <input type="text" class="search-input" placeholder="Search users...">
+                        <button class="search-btn">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="users-table-container">
+                    <table class="users-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Events Registered</th>
+                                <th>Events Hosted</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>John Smith</td>
+                                <td>john.smith@college.edu</td>
+                                <td>555-123-4567</td>
+                                <td>5</td>
+                                <td>2</td>
+                                <td><span class="status-active">Active</span></td>
+                                <td>
+                                    <div class="table-actions">
+                                        <button class="action-btn edit-btn" title="Edit">
+                                            <svg viewBox="0 0 24 24">
+                                                <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"></path>
+                                            </svg>
+                                        </button>
+                                        <button class="action-btn delete-btn" title="Delete">
+                                            <svg viewBox="0 0 24 24">
+                                                <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"></path>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Emma Johnson</td>
+                                <td>emma.j@college.edu</td>
+                                <td>555-987-6543</td>
+                                <td>3</td>
+                                <td>0</td>
+                                <td><span class="status-active">Active</span></td>
+                                <td>
+                                    <div class="table-actions">
+                                        <button class="action-btn edit-btn" title="Edit">
+                                            <svg viewBox="0 0 24 24">
+                                                <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"></path>
+                                            </svg>
+                                        </button>
+                                        <button class="action-btn delete-btn" title="Delete">
+                                            <svg viewBox="0 0 24 24">
+                                                <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"></path>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Michael Brown</td>
+                                <td>michael.b@college.edu</td>
+                                <td>555-789-0123</td>
+                                <td>8</td>
+                                <td>3</td>
+                                <td><span class="status-inactive">Inactive</span></td>
+                                <td>
+                                    <div class="table-actions">
+                                        <button class="action-btn edit-btn" title="Edit">
+                                            <svg viewBox="0 0 24 24">
+                                                <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"></path>
+                                            </svg>
+                                        </button>
+                                        <button class="action-btn activate-btn" title="Activate">
+                                            <svg viewBox="0 0 24 24">
+                                                <path d="M13 3h-2v10h2V3zm4.83 2.17l-1.42 1.42C17.99 7.86 19 9.81 19 12c0 3.87-3.13 7-7 7s-7-3.13-7-7c0-2.19 1.01-4.14 2.58-5.42L6.17 5.17C4.23 6.82 3 9.26 3 12c0 4.97 4.03 9 9 9s9-4.03 9-9c0-2.74-1.23-5.18-3.17-6.83z"></path>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="pagination">
+                    <button class="pagination-btn prev-btn">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path>
+                        </svg>
+                    </button>
+                    <div class="pagination-numbers">
+                        <button class="pagination-number active">1</button>
+                        <button class="pagination-number">2</button>
+                    </div>
+                    <button class="pagination-btn next-btn">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Analytics Tab -->
+            <div class="tab-content" id="analytics-tab">
+                <div class="admin-section-header">
+                    <h2>Analytics Dashboard</h2>
+                    <div class="date-filter">
+                        <select class="date-select">
+                            <option value="week">Last 7 days</option>
+                            <option value="month" selected>Last 30 days</option>
+                            <option value="year">Last 365 days</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="analytics-grid">
+                    <div class="analytics-card full-width">
+                        <h3>Event Registration Trends</h3>
+                        <div class="chart-container">
+                            <canvas id="registrationTrendsChart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div class="analytics-card">
+                        <h3>Event Categories Distribution</h3>
+                        <div class="chart-container">
+                            <canvas id="categoriesChart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div class="analytics-card">
+                        <h3>User Engagement</h3>
+                        <div class="chart-container">
+                            <canvas id="engagementChart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div class="analytics-card">
+                        <h3>Event Popularity</h3>
+                        <div class="chart-container">
+                            <canvas id="popularityChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div class="toast-container">
+        <div class="toast" id="notificationToast">
+            <div class="toast-icon">
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"></path>
+                </svg>
+            </div>
+            <div class="toast-content"></div>
+            <button class="toast-close">
+                <svg viewBox="0 0 24 24">
+                    <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"></path>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chart.js/3.7.0/chart.min.js"></script>
+    <script src="assets/js/utility.js"></script>
+    <script src="assets/js/toast.js"></script>
+    <script src="assets/js/analytics.js"></script>
+    <script src="admin.js"></script>
+    
+    <script>
+    // Add preloader removal code
+    window.addEventListener('load', () => {
+        const preloader = document.querySelector('.preloader');
+        setTimeout(() => {
+            preloader.style.opacity = '0';
+            setTimeout(() => {
+                preloader.style.display = 'none';
+            }, 500);
+        }, 1000);
+    });
+    </script>
+</body>
+</html> 

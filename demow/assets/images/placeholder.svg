@@ -1,0 +1,19 @@
+<svg width="400" height="300" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background -->
+    <rect width="400" height="300" fill="#f8f9fa" />
+
+    <!-- Image outline -->
+    <rect x="50" y="50" width="300" height="200" rx="8" ry="8" fill="#e9ecef" stroke="#dee2e6" stroke-width="2" />
+
+    <!-- Mountain icon -->
+    <path d="M175,160 L225,160 L200,120 Z" fill="#adb5bd" />
+    <path d="M125,200 L225,200 L175,120 L125,200 Z" fill="#ced4da" />
+    <path d="M225,200 L275,200 L250,160 L225,200 Z" fill="#adb5bd" />
+
+    <!-- Sun -->
+    <circle cx="260" cy="100" r="15" fill="#f8f9fa" stroke="#adb5bd" stroke-width="2" />
+
+    <!-- Text -->
+    <text x="200" y="240" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#6c757d">Image Not
+        Available</text>
+</svg>

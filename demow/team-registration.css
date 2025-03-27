@@ -1,0 +1,352 @@
+/* Team Registration Modal Styles */
+
+#team-registration-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
+    padding: 30px;
+}
+
+.modal-content {
+    background-color: #fff;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 600px;
+    position: relative;
+    padding: 24px;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2);
+    animation: modalFadeIn 0.3s ease-in-out;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 8px;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 8px;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #eee;
+}
+
+.modal-title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #333;
+    margin: 0;
+}
+
+.close-modal {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    color: #666;
+    padding: 0;
+    margin: 0;
+    line-height: 1;
+    transition: color 0.2s;
+}
+
+.close-modal:hover {
+    color: #f44336;
+}
+
+.modal-event-details {
+    background-color: #f5f8ff;
+    padding: 16px;
+    border-radius: 8px;
+    margin-bottom: 24px;
+}
+
+.event-title-modal {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin: 0 0 8px 0;
+}
+
+.event-details-modal {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 0;
+    line-height: 1.4;
+}
+
+#teamRegistrationForm {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form-section label {
+    font-weight: 600;
+    color: #333;
+    font-size: 0.9rem;
+}
+
+.team-name-input input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+}
+
+.team-name-input input:focus {
+    border-color: #3f51b5;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(63, 81, 181, 0.1);
+}
+
+.team-members-section h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333;
+    margin: 0 0 16px 0;
+}
+
+.team-members-counter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    background-color: #f5f8ff;
+    border-radius: 8px;
+    margin-bottom: 16px;
+}
+
+.member-count {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.member-count b {
+    color: #3f51b5;
+}
+
+.team-member-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.team-member {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    background-color: #f5f8ff;
+    padding: 12px 16px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.team-leader {
+    background-color: #e8f5e9;
+}
+
+.team-leader::before {
+    content: "👑";
+    font-size: 1.2rem;
+    margin-right: 8px;
+}
+
+.team-member input {
+    flex: 1;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 0.9rem;
+}
+
+.team-member input:focus {
+    outline: none;
+    border-color: #3f51b5;
+    box-shadow: 0 0 0 2px rgba(63, 81, 181, 0.1);
+}
+
+.remove-member {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #f44336;
+    padding: 4px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.2s;
+}
+
+.remove-member:hover {
+    background-color: rgba(244, 67, 54, 0.1);
+}
+
+.remove-member svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+}
+
+.add-member-btn {
+    background: none;
+    border: 2px dashed #3f51b5;
+    color: #3f51b5;
+    font-weight: 600;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    transition: all 0.2s;
+}
+
+.add-member-btn:hover {
+    background-color: rgba(63, 81, 181, 0.05);
+}
+
+.add-member-btn.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    border-color: #ccc;
+    color: #999;
+}
+
+.add-member-btn svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+}
+
+.form-submit {
+    margin-top: 16px;
+}
+
+.form-submit button {
+    width: 100%;
+    padding: 14px;
+    background-color: #3f51b5;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.form-submit button:hover {
+    background-color: #303f9f;
+}
+
+.form-submit button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.team-rules {
+    margin-top: 16px;
+    padding: 16px;
+    background-color: #fff8e1;
+    border-radius: 8px;
+    border-left: 4px solid #ffc107;
+}
+
+.team-rules h4 {
+    font-size: 1rem;
+    margin: 0 0 8px 0;
+    color: #795548;
+}
+
+.team-rules ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.team-rules li {
+    font-size: 0.9rem;
+    color: #795548;
+    margin-bottom: 4px;
+}
+
+/* Toast notification */
+.toast {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background-color: #333;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    z-index: 2000;
+}
+
+.toast.visible {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+}
+
+/* Animation keyframes */
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 90%;
+        padding: 16px;
+    }
+    
+    .modal-title {
+        font-size: 1.4rem;
+    }
+    
+    .event-title-modal {
+        font-size: 1.1rem;
+    }
+} 

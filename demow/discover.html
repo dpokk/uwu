@@ -9,6 +9,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="home.css">
     <link rel="stylesheet" href="discover.css">
+    <link rel="stylesheet" href="team-registration.css">
+    <link rel="stylesheet" href="assets/css/toast.css">
 </head>
 <body>
     <!-- Preloader -->
@@ -285,74 +287,61 @@
         </div>
 
         <!-- Team Registration Modal -->
-        <div class="modal-overlay">
-            <div class="modal team-modal">
+        <div id="team-registration-modal">
+            <div class="modal-content">
                 <div class="modal-header">
-                    <h2>Team Registration</h2>
-                    <button class="modal-close">
-                        <svg viewBox="0 0 24 24">
-                            <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path>
-                        </svg>
-                    </button>
+                    <h2 class="modal-title">Team Registration</h2>
+                    <button class="close-modal">×</button>
                 </div>
-                <div class="modal-content">
+                
+                <div class="modal-event-details">
                     <h3 class="event-title-modal">24-Hour Hackathon</h3>
-                    <p class="event-details-modal">July 15, 9:00 AM at Tech Building</p>
-                    
-                    <form id="teamForm" class="team-form">
-                        <div class="form-group">
-                            <label for="teamName">Team Name</label>
-                            <input type="text" id="teamName" name="teamName" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="captainEmail">Your Email (Team Captain)</label>
-                            <input type="email" id="captainEmail" name="captainEmail" required>
-                        </div>
-                        
-                        <div class="team-members">
-                            <div class="team-members-header">
-                                <h3>Team Members</h3>
-                                <div class="team-size-indicator">
-                                    <span class="current-members">1</span>
-                                    <span>/</span>
-                                    <span class="max-members">5</span>
-                                    <span>members</span>
-                                </div>
-                            </div>
-                            
-                            <div class="team-member-list">
-                                <div class="team-member">
-                                    <input type="email" placeholder="Member email" name="member1" required>
-                                    <button type="button" class="remove-member">
-                                        <svg viewBox="0 0 24 24">
-                                            <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path>
-                                        </svg>
-                                    </button>
-                                </div>
-                            </div>
-                            
-                            <button type="button" class="btn btn-secondary add-member-btn">
-                                <svg viewBox="0 0 24 24">
-                                    <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"></path>
-                                </svg>
-                                <span>Add Team Member</span>
-                            </button>
-                        </div>
-                        
-                        <div class="form-group checkbox-container">
-                            <input type="checkbox" id="agreeTerms" name="agreeTerms" required>
-                            <label for="agreeTerms" class="checkbox-label">
-                                <span class="checkbox-custom"></span>
-                                <span>I agree to the <a href="#">event rules</a> and confirm all team members are eligible to participate.</span>
-                            </label>
-                        </div>
-                        
-                        <button type="submit" class="btn btn-primary btn-full">
-                            <span>Complete Registration</span>
-                        </button>
-                    </form>
+                    <p class="event-details-modal">Join this exciting coding challenge and showcase your skills!</p>
                 </div>
+                
+                <form id="teamRegistrationForm">
+                    <div class="form-section team-name-input">
+                        <label for="teamName">Team Name</label>
+                        <input type="text" id="teamName" name="teamName" placeholder="Enter your team name" required>
+                    </div>
+                    
+                    <div class="form-section team-members-section">
+                        <h3>Team Members</h3>
+                        
+                        <div class="team-members-counter">
+                            <div class="member-count">
+                                Current Members: <b><span class="current-members">1</span>/<span class="max-members">4</span></b>
+                            </div>
+                        </div>
+                        
+                        <div class="team-member-list">
+                            <div class="team-member team-leader">
+                                <input type="email" placeholder="Team leader email" name="leader" required>
+                            </div>
+                        </div>
+                        
+                        <button type="button" class="add-member-btn">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"></path>
+                            </svg>
+                            Add Team Member
+                        </button>
+                    </div>
+                    
+                    <div class="team-rules">
+                        <h4>Team Guidelines:</h4>
+                        <ul>
+                            <li>All team members must be registered with their college email</li>
+                            <li>Teams must have at least 2 and at most 4 members</li>
+                            <li>All team members must be present at the start of the event</li>
+                            <li>Team leader will be the point of contact for all communications</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="form-submit">
+                        <button type="submit">Register Team</button>
+                    </div>
+                </form>
             </div>
         </div>
 
@@ -460,5 +449,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="home.js"></script>
     <script src="discover.js"></script>
+    <script src="team-registration.js"></script>
+    <script src="rsvp-handler.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+    <script src="supabase-config.js"></script>
+    <script src="assets/js/utility.js"></script>
+    <script src="assets/js/toast.js"></script>
 </body>
 </html> 
