@@ -98,10 +98,8 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelector('.auth-form').style.display = 'none';
         document.querySelector('.success-message').classList.remove('hidden');
 
-        // Redirect to login page after signup
-        setTimeout(() => {
-            window.location.href = 'login.html';
-        }, 3000);
+        // Redirect to login page immediately
+        window.location.href = 'login.html';
     }
 
     // Helper Functions for Error Handling
