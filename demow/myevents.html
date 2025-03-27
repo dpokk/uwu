@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Events - Campus Event Finder</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="discover.css">
+    <link rel="stylesheet" href="myevents.css">
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="preloader-content">
+            <div class="loader"></div>
+            <h2 class="loader-text">Browse BMSIT</h2>
+        </div>
+    </div>
+
+    <!-- Particle Background -->
+    <div id="particle-container"></div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar sticky-nav">
+        <div class="navbar-container">
+            <a href="index.html" class="logo">
+                <span class="logo-text">Browse</span>
+                <span class="logo-highlight">BMSIT</span>
+            </a>
+            <div class="menu-toggle">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="discover.html" class="nav-link">Discover</a></li>
+                <li class="user-dropdown">
+                    <a href="#" class="nav-link profile-link active">
+                        <span>My Profile</span>
+                        <svg class="dropdown-icon" viewBox="0 0 24 24">
+                            <path d="M7 10l5 5 5-5z"></path>
+                        </svg>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="#" class="dropdown-item">Dashboard</a>
+                        <a href="myevents.html" class="dropdown-item active">My Events</a>
+                        <a href="#" class="dropdown-item">Settings</a>
+                        <a href="login.html" class="dropdown-item">Logout</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-content myevents-content">
+        <header class="myevents-header">
+            <div class="myevents-title-container">
+                <h1 class="myevents-title">My Events</h1>
+                <p class="myevents-subtitle">Manage your registered and hosted events</p>
+            </div>
+            
+            <!-- Tab Navigation -->
+            <div class="tabs-container">
+                <div class="tabs">
+                    <button class="tab active" data-tab="registered">
+                        Registered
+                        <span class="badge">3</span>
+                    </button>
+                    <button class="tab" data-tab="hosting">
+                        Hosting
+                        <span class="badge">2</span>
+                    </button>
+                    <div class="tab-indicator"></div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Tab Content -->
+        <div class="tab-content-container">
+            <!-- Registered Events Section -->
+            <div class="tab-content active" id="registered-content">
+                <div class="events-grid registered-events">
+                    <!-- Upcoming Event Card -->
+                    <div class="event-card status-upcoming">
+                        <div class="status-indicator">
+                            <span class="status-dot"></span>
+                            <span class="status-text">Upcoming</span>
+                        </div>
+                        <div class="event-image">
+                            <img src="assets/images/events/event1.jpg" alt="Music Festival">
+                            <div class="event-date">
+                                <span class="event-day">24</span>
+                                <span class="event-month">JUN</span>
+                            </div>
+                            <div class="countdown-timer">
+                                <div class="countdown-unit">
+                                    <span class="count-number">02</span>
+                                    <span class="count-label">Days</span>
+                                </div>
+                                <div class="countdown-unit">
+                                    <span class="count-number">14</span>
+                                    <span class="count-label">Hours</span>
+                                </div>
+                                <div class="countdown-unit">
+                                    <span class="count-number">36</span>
+                                    <span class="count-label">Mins</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="event-content">
+                            <span class="event-tag">Music</span>
+                            <h3 class="event-title">Summer Music Festival</h3>
+                            <div class="event-info">
+                                <span class="event-location">Central Quad</span>
+                                <span class="event-time">7:00 PM</span>
+                            </div>
+                            <p class="event-description">Join us for a night of amazing performances from student bands and professional artists.</p>
+                            <div class="event-actions">
+                                <button class="btn btn-secondary show-qr-btn">Show QR Code</button>
+                                <button class="btn btn-outline cancel-btn">Cancel Registration</button>
+                            </div>
+                            <div class="qr-container">
+                                <div class="qr-code">
+                                    <img src="assets/images/qr-placeholder.png" alt="QR Code">
+                                </div>
+                                <p class="qr-help">Show this QR code at the event entrance</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Ongoing Event Card -->
+                    <div class="event-card status-ongoing">
+                        <div class="status-indicator">
+                            <span class="status-dot"></span>
+                            <span class="status-text">Happening Now</span>
+                        </div>
+                        <div class="event-image">
+                            <img src="assets/images/events/event2.jpg" alt="Hackathon">
+                            <div class="event-date">
+                                <span class="event-day">15</span>
+                                <span class="event-month">JUL</span>
+                            </div>
+                            <div class="happening-now-badge">
+                                <span>LIVE</span>
+                            </div>
+                        </div>
+                        <div class="event-content">
+                            <span class="event-tag">Technology</span>
+                            <h3 class="event-title">24-Hour Hackathon</h3>
+                            <div class="event-info">
+                                <span class="event-location">Tech Building</span>
+                                <span class="event-time">9:00 AM</span>
+                            </div>
+                            <p class="event-description">Build innovative solutions in teams within 24 hours. Great prizes for winners!</p>
+                            <div class="event-actions">
+                                <button class="btn btn-primary show-qr-btn">Show QR Code</button>
+                            </div>
+                            <div class="qr-container">
+                                <div class="qr-code">
+                                    <img src="assets/images/qr-placeholder.png" alt="QR Code">
+                                </div>
+                                <p class="qr-help">Show this QR code at the event entrance</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Past Event Card -->
+                    <div class="event-card status-past">
+                        <div class="status-indicator">
+                            <span class="status-dot"></span>
+                            <span class="status-text">Past</span>
+                        </div>
+                        <div class="event-image">
+                            <img src="assets/images/events/event3.jpg" alt="Art Exhibition" class="grayscale">
+                            <div class="event-date">
+                                <span class="event-day">3</span>
+                                <span class="event-month">JUN</span>
+                            </div>
+                        </div>
+                        <div class="event-content">
+                            <span class="event-tag">Arts</span>
+                            <h3 class="event-title">Student Art Exhibition</h3>
+                            <div class="event-info">
+                                <span class="event-location">Arts Center</span>
+                                <span class="event-time">5:00 PM</span>
+                            </div>
+                            <p class="event-description">Showcasing incredible artwork from talented students across all departments.</p>
+                            <div class="event-actions">
+                                <button class="btn btn-primary review-btn">Write a Review</button>
+                                <button class="btn btn-secondary photos-btn">See Photos</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Hosting Events Section -->
+            <div class="tab-content" id="hosting-content">
+                <div class="hosting-header">
+                    <button class="btn btn-primary create-event-btn">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"></path>
+                        </svg>
+                        <span>Create New Event</span>
+                    </button>
+                </div>
+                
+                <div class="events-grid hosting-events">
+                    <!-- Approved Event Card -->
+                    <div class="event-card status-approved">
+                        <div class="status-indicator">
+                            <span class="status-dot"></span>
+                            <span class="status-text">Approved</span>
+                        </div>
+                        <div class="event-image">
+                            <img src="assets/images/events/event4.jpg" alt="Career Workshop">
+                            <div class="event-date">
+                                <span class="event-day">30</span>
+                                <span class="event-month">JUL</span>
+                            </div>
+                            <div class="attendee-count">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"></path>
+                                </svg>
+                                <span class="attendee-number">42</span>
+                                <span class="attendee-max">/ 50</span>
+                            </div>
+                        </div>
+                        <div class="event-content">
+                            <span class="event-tag">Career</span>
+                            <h3 class="event-title">Resume Building Workshop</h3>
+                            <div class="event-info">
+                                <span class="event-location">Business Center</span>
+                                <span class="event-time">2:00 PM</span>
+                            </div>
+                            <p class="event-description">Learn how to create a compelling resume that stands out to employers.</p>
+                            <div class="analytics-preview">
+                                <div class="chart-container">
+                                    <canvas class="mini-chart" width="80" height="30"></canvas>
+                                </div>
+                                <div class="analytics-data">
+                                    <div class="analytics-item">
+                                        <span class="analytics-label">Views</span>
+                                        <span class="analytics-value">128</span>
+                                    </div>
+                                    <div class="analytics-item">
+                                        <span class="analytics-label">Reg. Rate</span>
+                                        <span class="analytics-value">84%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="host-actions">
+                                <button class="btn btn-primary manage-btn">Manage Event</button>
+                                <div class="quick-actions">
+                                    <button class="quick-action-toggle">
+                                        <svg viewBox="0 0 24 24">
+                                            <path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"></path>
+                                        </svg>
+                                    </button>
+                                    <div class="quick-action-menu">
+                                        <button class="quick-action-item">
+                                            <svg viewBox="0 0 24 24">
+                                                <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"></path>
+                                            </svg>
+                                            <span>Edit</span>
+                                        </button>
+                                        <button class="quick-action-item">
+                                            <svg viewBox="0 0 24 24">
+                                                <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"></path>
+                                            </svg>
+                                            <span>Duplicate</span>
+                                        </button>
+                                        <button class="quick-action-item">
+                                            <svg viewBox="0 0 24 24">
+                                                <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"></path>
+                                            </svg>
+                                            <span>Cancel Event</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pending Approval Event Card -->
+                    <div class="event-card status-pending">
+                        <div class="status-indicator">
+                            <span class="status-dot"></span>
+                            <span class="status-text">Pending Approval</span>
+                        </div>
+                        <div class="event-image">
+                            <img src="assets/images/events/event5.jpg" alt="Game Night">
+                            <div class="event-date">
+                                <span class="event-day">10</span>
+                                <span class="event-month">AUG</span>
+                            </div>
+                        </div>
+                        <div class="event-content">
+                            <span class="event-tag">Social</span>
+                            <h3 class="event-title">Board Game Night</h3>
+                            <div class="event-info">
+                                <span class="event-location">Student Union</span>
+                                <span class="event-time">6:00 PM</span>
+                            </div>
+                            <p class="event-description">Come and join us for a fun night of board games, snacks, and social interaction.</p>
+                            <div class="approval-status">
+                                <div class="approval-info">
+                                    <div class="approval-icon">
+                                        <svg viewBox="0 0 24 24">
+                                            <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"></path>
+                                            <path d="M12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="approval-text">
+                                        <p>Awaiting approval from faculty advisor</p>
+                                        <p class="approval-date">Submitted: July 5, 2023</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="host-actions">
+                                <button class="btn btn-primary edit-btn">Edit Submission</button>
+                                <div class="quick-actions">
+                                    <button class="quick-action-toggle">
+                                        <svg viewBox="0 0 24 24">
+                                            <path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"></path>
+                                        </svg>
+                                    </button>
+                                    <div class="quick-action-menu">
+                                        <button class="quick-action-item">
+                                            <svg viewBox="0 0 24 24">
+                                                <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.17L4 17.17V4h16v12z"></path>
+                                            </svg>
+                                            <span>Contact Advisor</span>
+                                        </button>
+                                        <button class="quick-action-item">
+                                            <svg viewBox="0 0 24 24">
+                                                <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"></path>
+                                            </svg>
+                                            <span>Withdraw Submission</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cancel Registration Confirmation Modal -->
+        <div class="modal-overlay cancel-overlay">
+            <div class="modal cancel-modal">
+                <div class="modal-header">
+                    <h2>Cancel Registration?</h2>
+                    <button class="modal-close">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div class="modal-content">
+                    <div class="cancel-event-details">
+                        <h3 class="event-title-modal">Summer Music Festival</h3>
+                        <p class="event-details-modal">June 24, 7:00 PM at Central Quad</p>
+                    </div>
+                    
+                    <div class="cancel-warning">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"></path>
+                        </svg>
+                        <p>Are you sure you want to cancel your registration? This action cannot be undone.</p>
+                    </div>
+                    
+                    <div class="modal-actions">
+                        <button class="btn btn-secondary modal-cancel">Keep Registration</button>
+                        <button class="btn btn-primary confirm-cancel">Yes, Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Toast Notification -->
+        <div class="toast-container">
+            <div class="toast success-toast">
+                <div class="toast-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"></path>
+                    </svg>
+                </div>
+                <div class="toast-content">
+                    <p class="toast-message">Your registration has been cancelled.</p>
+                </div>
+                <button class="toast-close">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2023 Campus Event Finder. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#" class="social-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"></path>
+                    </svg>
+                </a>
+                <a href="#" class="social-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M23.954 4.569c-.885.389-1.83.654-2.825.775 1.014-.611 1.794-1.574 2.163-2.723-.951.555-2.005.959-3.127 1.184-.896-.959-2.173-1.559-3.591-1.559-2.717 0-4.92 2.203-4.92 4.917 0 .39.045.765.127 1.124-4.09-.193-7.715-2.157-10.141-5.126-.427.722-.666 1.561-.666 2.475 0 1.71.87 3.213 2.188 4.096-.807-.026-1.566-.248-2.228-.616v.061c0 2.385 1.693 4.374 3.946 4.827-.413.111-.849.171-1.296.171-.314 0-.615-.03-.916-.086.631 1.953 2.445 2.445 3.377 4.604 3.417-1.68 1.319-3.809 2.105-6.102 2.105-.39 0-.779-.023-1.17-.067 2.189 1.394 4.768 2.209 7.557 2.209 9.054 0 14-7.503 14-14v-.617c.961-.689 1.8-1.56 2.46-2.548z"></path>
+                    </svg>
+                </a>
+                <a href="#" class="social-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="home.js"></script>
+    <script src="discover.js"></script>
+    <script src="myevents.js"></script>
+</body>
+</html> 
